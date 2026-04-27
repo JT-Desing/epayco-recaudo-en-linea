@@ -1,0 +1,10 @@
+.codex/
+.npm-cache/
+*.png
+*.jpg
+*.jpeg
+*.webp
+*.gif
+node_modules/
+.DS_Store
+Thumbs.db
