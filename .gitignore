@@ -1,5 +1,8 @@
 .codex/
 .npm-cache/
+git-meta/
+pdf-previews/
+chrome-profile-validation/
 *.png
 *.jpg
 *.jpeg
