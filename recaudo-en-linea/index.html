@@ -19,7 +19,7 @@
     <link rel="canonical" href="https://epayco.com/recaudo-en-linea/">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./styles.css">
     <script type="application/ld+json">
       {
@@ -43,14 +43,70 @@
           {
             "@type": "FAQPage",
             "mainEntity": [
-              {"@type":"Question","name":"¿Qué es una plataforma de recaudo en línea?","acceptedAnswer":{"@type":"Answer","text":"Es una solución que permite gestionar y recibir pagos de facturas, cuotas, servicios u obligaciones desde canales digitales, con seguimiento y control en tiempo real."}},
-              {"@type":"Question","name":"¿Para qué sirve ePayco Recaudo?","acceptedAnswer":{"@type":"Answer","text":"Sirve para centralizar cobros, automatizar procesos operativos y facilitar que los clientes consulten y paguen sus obligaciones de forma rápida."}},
-              {"@type":"Question","name":"¿Puedo cargar cobros en lote?","acceptedAnswer":{"@type":"Answer","text":"Sí. Puedes organizar y publicar múltiples obligaciones usando una modalidad orientada al recaudo por archivo."}},
-              {"@type":"Question","name":"¿Puedo ver quién pagó y cuándo lo hizo?","acceptedAnswer":{"@type":"Answer","text":"Sí. El módulo de recaudo permite hacer seguimiento del estado de los pagos desde el dashboard."}},
-              {"@type":"Question","name":"¿Qué diferencia hay entre Recaudo, Pagos y Suscripciones?","acceptedAnswer":{"@type":"Answer","text":"Recaudo está pensado para gestionar obligaciones y cobros estructurados. Pagos facilita cobros digitales más amplios. Suscripciones se enfoca en cobros recurrentes automatizados."}},
-              {"@type":"Question","name":"¿Para qué tipo de empresa funciona?","acceptedAnswer":{"@type":"Answer","text":"Es útil para instituciones educativas, administraciones, eventos, empresas de servicios y operaciones que necesitan cobrar a muchas personas con control y trazabilidad."}},
-              {"@type":"Question","name":"¿Puedo usar diferentes modalidades al mismo tiempo?","acceptedAnswer":{"@type":"Answer","text":"Sí. Dependiendo de tu operación, puedes usar una modalidad o combinar varias para adaptar el recaudo a distintos tipos de cobro."}},
-              {"@type":"Question","name":"¿Qué tipo de cobros puedo gestionar con ePayco Recaudo?","acceptedAnswer":{"@type":"Answer","text":"Puedes gestionar facturas, mensualidades, cuotas, pagos por servicios, inscripciones, cobros periódicos y otras obligaciones definidas por tu negocio."}}
+              {
+                "@type": "Question",
+                "name": "¿Qué es una plataforma de recaudo en línea?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Es una solución que permite gestionar y recibir pagos de facturas, cuotas, servicios u obligaciones desde canales digitales, con seguimiento y control en tiempo real."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "¿Para qué sirve ePayco Recaudo?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Sirve para centralizar cobros, automatizar procesos operativos y facilitar que los clientes consulten y paguen sus obligaciones de forma rápida."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "¿Puedo cargar cobros en lote?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Sí. Puedes organizar y publicar múltiples obligaciones usando una modalidad orientada al recaudo por archivo."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "¿Puedo ver quién pagó y cuándo lo hizo?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Sí. El módulo de recaudo permite hacer seguimiento del estado de los pagos desde el dashboard."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "¿Qué diferencia hay entre Recaudo, Pagos y Suscripciones?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Recaudo está pensado para gestionar obligaciones y cobros estructurados. Pagos facilita cobros digitales más amplios. Suscripciones se enfoca en cobros recurrentes automatizados."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "¿Para qué tipo de empresa funciona?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Es útil para instituciones educativas, administraciones, eventos, empresas de servicios y operaciones que necesitan cobrar a muchas personas con control y trazabilidad."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "¿Puedo usar diferentes modalidades al mismo tiempo?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Sí. Dependiendo de tu operación, puedes usar una modalidad o combinar varias para adaptar el recaudo a distintos tipos de cobro."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "¿Qué tipo de cobros puedo gestionar con ePayco Recaudo?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Puedes gestionar facturas, mensualidades, cuotas, pagos por servicios, inscripciones, cobros periódicos y otras obligaciones definidas por tu negocio."
+                }
+              }
             ]
           }
         ]
@@ -59,33 +115,38 @@
   </head>
   <body>
     <div class="page-shell">
-      <header class="site-header">
+      <header class="site-header" data-reveal>
         <div class="container header-inner">
           <a class="brand" href="#inicio" aria-label="Ir al inicio">
-            <span class="brand-mark">e</span>
-            <span>ePayco Recaudo</span>
+            <span class="brand-logo">ePayco</span>
+            <span class="brand-product">Recaudo</span>
           </a>
           <nav class="site-nav" aria-label="Principal">
             <a href="#cambio">Valor</a>
             <a href="#motor">Motor</a>
             <a href="#modalidades">Modalidades</a>
-            <a href="#casos">Sectores</a>
+            <a href="#sectores">Sectores</a>
             <a href="#faq">FAQ</a>
           </nav>
-          <a class="button button-primary header-cta" href="#contacto">Solicita tu plan</a>
+          <a class="button button-dark header-cta" href="#contacto">Solicita tu plan</a>
         </div>
       </header>
 
       <main id="inicio">
-        <section class="hero" data-theme="dark">
+        <section class="hero section-dark" data-section="hero">
+          <div class="hero-glow" aria-hidden="true"></div>
           <div class="container hero-grid">
             <div class="hero-copy" data-reveal>
               <p class="eyebrow">Plataforma de recaudo en línea para empresas en Colombia</p>
-              <h1>Plataforma de recaudo en línea para empresas en Colombia</h1>
-              <p class="hero-lead">Convierte tus cobros en una operación visible, automática y fácil de pagar. Centraliza facturas, cuotas y servicios; tus clientes pagan en línea y tu equipo monitorea cada movimiento desde un solo dashboard.</p>
+              <h1>Recauda facturas, cuotas y servicios con control total de la operación.</h1>
+              <p class="hero-lead">
+                Ordena tus obligaciones, habilita pagos digitales y consulta en tiempo real quién pagó,
+                cuándo pagó y por cuál canal. Menos conciliación manual, más visibilidad para cartera,
+                finanzas y servicio al cliente.
+              </p>
               <div class="hero-actions">
                 <a class="button button-primary" href="#contacto">Solicita tu plan</a>
-                <a class="button button-ghost" href="#modalidades">Ver modalidades</a>
+                <a class="button button-ghost-light" href="#modalidades">Ver modalidades</a>
               </div>
               <div class="hero-microcopy" aria-label="Capacidades clave">
                 <span>Recaudo de facturas</span>
@@ -95,32 +156,76 @@
               </div>
             </div>
 
-            <div class="hero-product" data-reveal>
-              <div class="product-frame">
-                <div class="product-top"><div><span>Vista operativa</span><strong>Recaudo hoy</strong></div><small>Actualizado en vivo</small></div>
-                <div class="product-kpi">
-                  <article><span>Conciliado</span><strong>92%</strong></article>
-                  <article><span>Cobros activos</span><strong>12.480</strong></article>
-                  <article><span>Modalidades</span><strong>3</strong></article>
+            <div class="hero-visual" data-reveal>
+              <div class="control-console">
+                <div class="console-top">
+                  <div>
+                    <span>Centro de control</span>
+                    <strong>Recaudo hoy</strong>
+                  </div>
+                  <small>En vivo</small>
                 </div>
-                <div class="product-flow" aria-label="Flujo de recaudo"><span>Archivo</span><i></i><span>Consulta</span><i></i><span>Pago</span><i></i><strong>Dashboard</strong></div>
-                <div class="product-table">
+                <div class="console-amount">
+                  <span>Total identificado</span>
+                  <strong>$428.6M</strong>
+                  <div class="console-progress"><i style="width: 84%"></i></div>
+                </div>
+                <div class="console-kpis">
+                  <article>
+                    <span>Conciliado</span>
+                    <strong>94%</strong>
+                  </article>
+                  <article>
+                    <span>Obligaciones</span>
+                    <strong>12.480</strong>
+                  </article>
+                  <article>
+                    <span>Canales</span>
+                    <strong>8</strong>
+                  </article>
+                </div>
+                <div class="console-flow" aria-label="Flujo de recaudo">
+                  <span>Archivo</span>
+                  <i></i>
+                  <span>Consulta</span>
+                  <i></i>
+                  <span>Pago</span>
+                  <i></i>
+                  <strong>Dashboard</strong>
+                </div>
+                <div class="console-list">
                   <div><span>Cuotas administración</span><strong>Pagado</strong></div>
                   <div><span>Matrículas y pensiones</span><strong>En curso</strong></div>
                   <div><span>Servicios recurrentes</span><strong>Conciliado</strong></div>
                 </div>
               </div>
-              <div class="floating-note"><strong>Menos seguimiento manual.</strong><span>Más claridad para finanzas, cartera y servicio al cliente.</span></div>
+              <div class="floating-ticket">
+                <span>Pago identificado</span>
+                <strong>Cliente #4821</strong>
+                <small>Validado en tiempo real</small>
+              </div>
             </div>
           </div>
         </section>
 
         <section class="quick-stats" aria-label="Datos rápidos">
           <div class="container stats-grid">
-            <article data-reveal><strong>360°</strong><span>control operativo</span></article>
-            <article data-reveal><strong>3</strong><span>modalidades activables</span></article>
-            <article data-reveal><strong>1 panel</strong><span>cobros centralizados</span></article>
-            <article data-reveal><strong>Más simple</strong><span>experiencia para el cliente</span></article>
+            <article data-reveal>
+              <strong>360°</strong>
+              <span>control operativo</span>
+            </article>
+            <article data-reveal>
+              <strong>+12K</strong>
+              <span>obligaciones gestionables</span>
+            </article>
+            <article data-reveal>
+              <strong>1 panel</strong>
+              <span>cobros centralizados</span>
+            </article>
+            <article data-reveal>
+              <strong>Tiempo real</strong>
+              <span>seguimiento de pagos</span>
+            </article>
           </div>
         </section>
 
@@ -128,94 +233,303 @@
           <div class="container">
             <div class="section-head narrow" data-reveal>
               <p class="eyebrow">El cambio operativo</p>
-              <h2>De perseguir pagos a tener una operación de recaudo bajo control.</h2>
-              <p>Recaudo no es solo un botón de pago. Es una forma de ordenar obligaciones, publicar cobros, facilitar la consulta del cliente y ver el estado de la cartera sin depender de validaciones dispersas.</p>
+              <h2>De perseguir soportes a controlar el recaudo desde una sola fuente.</h2>
+              <p>
+                ePayco Recaudo transforma cobros dispersos en una operación trazable: publicas obligaciones,
+                tus clientes consultan y pagan, y tu equipo ve el estado de cada movimiento sin depender de validaciones manuales.
+              </p>
             </div>
-            <div class="before-after">
-              <article class="contrast-card muted-card" data-reveal><span>Antes</span><h3>Cobros dispersos, conciliación manual y poca trazabilidad.</h3><ul><li>Archivos enviados por canales separados.</li><li>Clientes preguntando cuánto deben pagar.</li><li>Equipos revisando soportes uno por uno.</li></ul></article>
-              <article class="contrast-card accent-card" data-reveal><span>Con ePayco Recaudo</span><h3>Obligaciones centralizadas, pagos en línea y seguimiento en tiempo real.</h3><ul><li>Consulta y pago desde una experiencia clara.</li><li>Modalidades adaptadas al tipo de recaudo.</li><li>Visibilidad para operación, cartera y finanzas.</li></ul></article>
+
+            <div class="comparison-grid">
+              <article class="comparison-card muted-card" data-reveal>
+                <span>Antes</span>
+                <h3>Cartera con archivos, comprobantes y chats que no conversan entre sí.</h3>
+                <ul>
+                  <li>Seguimiento manual por cliente, factura o unidad.</li>
+                  <li>Conciliación tardía y poca visibilidad del estado real.</li>
+                  <li>Equipos operativos resolviendo preguntas repetidas.</li>
+                </ul>
+              </article>
+              <article class="comparison-card dark-card" data-reveal>
+                <span>Con ePayco Recaudo</span>
+                <h3>Obligaciones publicadas, pagos digitales y trazabilidad en tiempo real.</h3>
+                <ul>
+                  <li>Consulta y pago desde una experiencia clara.</li>
+                  <li>Modalidades adaptadas a cobros masivos o variables.</li>
+                  <li>Información lista para finanzas, cartera y servicio.</li>
+                </ul>
+              </article>
             </div>
           </div>
         </section>
 
         <section class="section engine-section" id="motor">
           <div class="container engine-grid">
-            <div class="section-head sticky-copy" data-reveal><p class="eyebrow">Motor de recaudo</p><h2>Todo el ciclo de cobro, explicado como lo vive tu operación.</h2><p>Desde la carga inicial hasta la consulta del pago, cada parte está diseñada para reducir fricción y mantener el control operativo.</p></div>
+            <div class="section-head sticky-copy" data-reveal>
+              <p class="eyebrow">Motor de recaudo</p>
+              <h2>Un sistema operativo para cobrar mejor, no solo un enlace de pago.</h2>
+              <p>
+                Cada módulo está pensado para reducir fricción en la operación y darle autonomía al usuario que paga.
+              </p>
+            </div>
             <div class="engine-stack">
-              <article class="engine-step" data-reveal><span>01</span><h3>Publica obligaciones</h3><p>Carga facturas, mensualidades, cuotas o servicios desde archivo, formulario o experiencia en línea.</p></article>
-              <article class="engine-step" data-reveal><span>02</span><h3>Facilita la consulta</h3><p>El cliente entiende qué debe pagar, por qué concepto y desde qué canal puede hacerlo.</p></article>
-              <article class="engine-step" data-reveal><span>03</span><h3>Recibe pagos digitales</h3><p>Activa una experiencia segura, clara y disponible para operaciones de alto volumen.</p></article>
-              <article class="engine-step" data-reveal><span>04</span><h3>Monitorea el estado</h3><p>Consulta pagos aprobados, pendientes y movimientos recientes desde un mismo panel.</p></article>
+              <article class="engine-step" data-reveal>
+                <span>01</span>
+                <h3>Centraliza obligaciones</h3>
+                <p>Organiza facturas, mensualidades, cuotas o servicios con identificadores claros para cada cliente.</p>
+              </article>
+              <article class="engine-step dark-step" data-reveal>
+                <span>02</span>
+                <h3>Automatiza la publicación</h3>
+                <p>Carga cobros en lote, crea formularios o habilita una experiencia de consulta y pago en línea.</p>
+              </article>
+              <article class="engine-step" data-reveal>
+                <span>03</span>
+                <h3>Facilita el pago</h3>
+                <p>El usuario entiende qué debe pagar, por qué concepto y desde qué canal puede hacerlo.</p>
+              </article>
+              <article class="engine-step" data-reveal>
+                <span>04</span>
+                <h3>Monitorea sin fricción</h3>
+                <p>Consulta aprobados, pendientes, canales y movimientos recientes desde un dashboard operativo.</p>
+              </article>
             </div>
           </div>
         </section>
 
-        <section class="section modalities-section" id="modalidades" data-theme="dark">
+        <section class="section benefits-section">
           <div class="container">
-            <div class="section-head" data-reveal><p class="eyebrow">Tipos de recaudo</p><h2>Elige cómo cobra tu empresa. Combina modalidades cuando la operación lo necesite.</h2><p>No todos los cobros se comportan igual. Por eso Recaudo se adapta a operaciones masivas, campañas temporales, servicios recurrentes y experiencias de consulta en línea.</p></div>
+            <div class="section-head" data-reveal>
+              <p class="eyebrow">Beneficios</p>
+              <h2>Más visibilidad para tu equipo, menos pasos para tus clientes.</h2>
+              <p>
+                Una experiencia de recaudo diseñada para operaciones con volumen, obligaciones periódicas y múltiples puntos de contacto.
+              </p>
+            </div>
+            <div class="benefit-grid">
+              <article data-reveal>
+                <span>Control</span>
+                <h3>Organiza tus cobros en un solo lugar</h3>
+                <p>Evita procesos dispersos, validaciones manuales y seguimiento por fuera del sistema.</p>
+              </article>
+              <article data-reveal>
+                <span>Automatización</span>
+                <h3>Carga, publica y cobra según tu operación</h3>
+                <p>Usa archivo, formulario o recaudo en línea sin obligar a tu empresa a un único flujo.</p>
+              </article>
+              <article data-reveal>
+                <span>Experiencia</span>
+                <h3>Haz que pagar sea más fácil</h3>
+                <p>Tus clientes consultan su obligación y pagan de forma clara, rápida y segura.</p>
+              </article>
+              <article data-reveal>
+                <span>Visibilidad</span>
+                <h3>Consulta pagos en tiempo real</h3>
+                <p>Identifica quién pagó, cuándo pagó y por cuál canal desde un mismo panel.</p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="section modalities-section section-dark" id="modalidades">
+          <div class="container">
+            <div class="section-head" data-reveal>
+              <p class="eyebrow">Tipos de recaudo</p>
+              <h2>Elige la modalidad que mejor se adapta a tu forma de cobrar.</h2>
+              <p>
+                Activa una opción o combina varias para cubrir cobros masivos, campañas temporales y obligaciones recurrentes.
+              </p>
+            </div>
+
             <div class="mode-explorer" data-reveal>
               <div class="mode-tabs" role="tablist" aria-label="Modalidades de recaudo">
                 <button class="mode-tab is-active" type="button" role="tab" aria-selected="true" data-mode="archivo">Por archivo</button>
                 <button class="mode-tab" type="button" role="tab" aria-selected="false" data-mode="formulario">Por formulario</button>
                 <button class="mode-tab" type="button" role="tab" aria-selected="false" data-mode="linea">En línea</button>
               </div>
+
               <div class="mode-panel" aria-live="polite">
-                <div><span class="mode-label" id="modeLabel">Cobros masivos y recurrentes</span><h3 id="modeTitle">Recaudo por archivo</h3><p id="modeText">Carga un archivo con facturas, cuotas u obligaciones para que tus clientes consulten el detalle y paguen en línea.</p></div>
-                <ul id="modeBullets"><li>Ideal para colegios, administración y servicios recurrentes.</li><li>Permite ordenar obligaciones por usuario, unidad o concepto.</li><li>Reduce validaciones manuales después del pago.</li></ul>
+                <div>
+                  <span class="mode-label" id="modeLabel">Cobros masivos y recurrentes</span>
+                  <h3 id="modeTitle">Recaudo por archivo</h3>
+                  <p id="modeText">Carga un archivo con facturas, cuotas u obligaciones para que tus clientes consulten el detalle y paguen en línea.</p>
+                </div>
+                <ul id="modeBullets">
+                  <li>Ideal para colegios, administración y servicios recurrentes.</li>
+                  <li>Permite ordenar obligaciones por usuario, unidad o concepto.</li>
+                  <li>Reduce validaciones manuales después del pago.</li>
+                </ul>
                 <a class="button button-primary" id="modeCta" href="#contacto">Quiero Recaudo por archivo</a>
               </div>
             </div>
           </div>
         </section>
 
-        <section class="section use-cases" id="casos">
+        <section class="section use-cases" id="sectores">
           <div class="container">
-            <div class="section-head" data-reveal><p class="eyebrow">Casos de uso</p><h2>Una plataforma para empresas que cobran a muchas personas y necesitan trazabilidad.</h2><p>Recaudo funciona para operaciones con mensualidades, cuotas, servicios, eventos, inscripciones o cartera personalizada.</p></div>
+            <div class="section-head" data-reveal>
+              <p class="eyebrow">Casos de uso</p>
+              <h2>Para empresas que cobran a muchas personas y necesitan trazabilidad.</h2>
+              <p>
+                Recaudo funciona para instituciones, administraciones y negocios con obligaciones periódicas o cobros personalizados.
+              </p>
+            </div>
+
             <div class="sector-grid">
-              <article class="sector-card large-card" data-reveal><span>Cobros por estudiante</span><h3>Colegios y universidades</h3><p>Gestiona matrículas, pensiones, cursos y otros cobros académicos con consulta por estudiante y mejor control del recaudo.</p></article>
-              <article class="sector-card" data-reveal><span>Seguimiento por unidad</span><h3>Propiedad horizontal</h3><p>Facilita cuotas de administración con seguimiento por torre, apartamento o unidad.</p></article>
-              <article class="sector-card" data-reveal><span>Activación rápida</span><h3>Eventos e inscripciones</h3><p>Recibe pagos por entradas, registros y campañas con formularios claros.</p></article>
-              <article class="sector-card" data-reveal><span>Operación recurrente</span><h3>Empresas de servicios</h3><p>Centraliza cobros por mantenimiento, membresías, asesorías o servicios periódicos.</p></article>
-              <article class="sector-card dark-card" data-reveal><span>Control en tiempo real</span><h3>Cobranzas personalizadas</h3><p>Genera cobros por cliente y consulta el estado de pago desde el dashboard.</p></article>
+              <article class="sector-card large-card" data-reveal>
+                <span>Cobros por estudiante</span>
+                <h3>Colegios y universidades</h3>
+                <p>Gestiona matrículas, pensiones, cursos y otros cobros académicos con consulta por estudiante.</p>
+              </article>
+              <article class="sector-card" data-reveal>
+                <span>Seguimiento por unidad</span>
+                <h3>Propiedad horizontal</h3>
+                <p>Facilita cuotas de administración con seguimiento por torre, apartamento o unidad.</p>
+              </article>
+              <article class="sector-card" data-reveal>
+                <span>Activación rápida</span>
+                <h3>Eventos e inscripciones</h3>
+                <p>Recibe pagos por entradas, registros y campañas con formularios claros.</p>
+              </article>
+              <article class="sector-card" data-reveal>
+                <span>Operación recurrente</span>
+                <h3>Empresas de servicios</h3>
+                <p>Centraliza cobros por mantenimiento, membresías, asesorías o servicios periódicos.</p>
+              </article>
+              <article class="sector-card dark-card" data-reveal>
+                <span>Control en tiempo real</span>
+                <h3>Cobranzas personalizadas</h3>
+                <p>Genera cobros por cliente y consulta el estado de pago desde el dashboard.</p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="section workflow-section">
+          <div class="container">
+            <div class="section-head narrow" data-reveal>
+              <p class="eyebrow">Cómo funciona</p>
+              <h2>Empieza a recaudar en tres movimientos.</h2>
+              <p>Activa el módulo, define la modalidad y monitorea toda la operación desde un mismo lugar.</p>
+            </div>
+
+            <div class="timeline">
+              <article data-reveal>
+                <span>01</span>
+                <h3>Configura Recaudo</h3>
+                <p>Define el proyecto, conceptos de cobro y reglas operativas desde el dashboard.</p>
+              </article>
+              <article data-reveal>
+                <span>02</span>
+                <h3>Publica cómo quieres cobrar</h3>
+                <p>Usa archivo, formulario o recaudo en línea según el flujo de tu empresa.</p>
+              </article>
+              <article data-reveal>
+                <span>03</span>
+                <h3>Haz seguimiento</h3>
+                <p>Consulta estados, canales, pagos recientes y obligaciones pendientes en tiempo real.</p>
+              </article>
             </div>
           </div>
         </section>
 
         <section class="section social-proof">
           <div class="container proof-grid">
-            <div class="section-head" data-reveal><p class="eyebrow">Comercios que usan ePayco</p><h2>Marcas, instituciones y empresas de servicios gestionan pagos digitales con ePayco.</h2><p>Telecomunicaciones, educación, servicios públicos, retail y empresas con alto volumen de cobros confían en una experiencia de pago clara y centralizada.</p></div>
-            <div class="brand-wall" aria-label="Empresas que usan ePayco" data-reveal><span>movistar</span><span>WOM</span><span>flamingo</span><span>Gases del Oriente</span><span>Tarjeta mefía</span><span>edeq</span><span>Sociedades BIC</span><span>Universidad de Cartagena</span></div>
-            <div class="proof-metrics"><article data-reveal><strong>4+</strong><span>sectores con operaciones de recaudo</span></article><article data-reveal><strong>1</strong><span>experiencia para consultar y pagar</span></article><article data-reveal><strong>Tiempo real</strong><span>para seguimiento y control operativo</span></article></div>
-          </div>
-        </section>
+            <div class="section-head" data-reveal>
+              <p class="eyebrow">Comercios que usan ePayco</p>
+              <h2>Marcas, instituciones y empresas de servicios gestionan pagos digitales con ePayco.</h2>
+              <p>
+                Telecomunicaciones, educación, servicios públicos, retail y organizaciones con alto volumen de cobros confían en una experiencia de pago clara y centralizada.
+              </p>
+            </div>
 
-        <section class="section timeline-section">
-          <div class="container">
-            <div class="section-head narrow" data-reveal><p class="eyebrow">Cómo funciona</p><h2>Empieza a recaudar en tres movimientos.</h2><p>Activa el módulo, define la modalidad y monitorea toda la operación desde un mismo lugar.</p></div>
-            <div class="timeline"><article data-reveal><span>01</span><h3>Configura Recaudo</h3><p>Define el proyecto, conceptos de cobro y reglas operativas desde el dashboard.</p></article><article data-reveal><span>02</span><h3>Publica cómo quieres cobrar</h3><p>Usa archivo, formulario o recaudo en línea según el flujo de tu empresa.</p></article><article data-reveal><span>03</span><h3>Haz seguimiento</h3><p>Consulta estados, canales, pagos recientes y obligaciones pendientes en tiempo real.</p></article></div>
+            <div class="brand-wall" aria-label="Empresas que usan ePayco" data-reveal>
+              <span>movistar</span>
+              <span>WOM</span>
+              <span>flamingo</span>
+              <span>Gases del Oriente</span>
+              <span>Tarjeta mefía</span>
+              <span>edeq</span>
+              <span>Sociedades BIC</span>
+              <span>Universidad de Cartagena</span>
+            </div>
+
+            <div class="proof-metrics">
+              <article data-reveal>
+                <strong>4+</strong>
+                <span>sectores con operaciones de recaudo</span>
+              </article>
+              <article data-reveal>
+                <strong>1</strong>
+                <span>experiencia para consultar y pagar</span>
+              </article>
+              <article data-reveal>
+                <strong>24/7</strong>
+                <span>disponibilidad para pagos digitales</span>
+              </article>
+            </div>
           </div>
         </section>
 
         <section class="section faq-section" id="faq">
           <div class="container faq-grid">
-            <div class="section-head" data-reveal><p class="eyebrow">FAQ</p><h2>Preguntas frecuentes sobre ePayco Recaudo</h2><p>Respuestas directas para usuarios que están evaluando una plataforma de recaudo en línea para su operación.</p></div>
+            <div class="section-head" data-reveal>
+              <p class="eyebrow">FAQ</p>
+              <h2>Preguntas frecuentes sobre ePayco Recaudo</h2>
+              <p>Respuestas directas para usuarios que evalúan una plataforma de recaudo en línea para su operación.</p>
+            </div>
+
             <div class="faq-list" data-reveal>
-              <details><summary>¿Qué es una plataforma de recaudo en línea?</summary><p>Es una solución que permite gestionar y recibir pagos de facturas, cuotas, servicios u obligaciones desde canales digitales, con seguimiento y control en tiempo real.</p></details>
-              <details><summary>¿Para qué sirve ePayco Recaudo?</summary><p>Sirve para centralizar cobros, automatizar procesos operativos y facilitar que los clientes consulten y paguen sus obligaciones de forma rápida.</p></details>
-              <details><summary>¿Puedo cargar cobros en lote?</summary><p>Sí. Puedes organizar y publicar múltiples obligaciones usando una modalidad orientada al recaudo por archivo.</p></details>
-              <details><summary>¿Puedo ver quién pagó y cuándo lo hizo?</summary><p>Sí. El módulo de recaudo permite hacer seguimiento del estado de los pagos desde el dashboard.</p></details>
-              <details><summary>¿Qué diferencia hay entre Recaudo, Pagos y Suscripciones?</summary><p>Recaudo está pensado para gestionar obligaciones y cobros estructurados. Pagos facilita cobros digitales más amplios. Suscripciones se enfoca en cobros recurrentes automatizados.</p></details>
-              <details><summary>¿Para qué tipo de empresa funciona?</summary><p>Es útil para instituciones educativas, administraciones, eventos, empresas de servicios y operaciones que necesitan cobrar a muchas personas con control y trazabilidad.</p></details>
-              <details><summary>¿Puedo usar diferentes modalidades al mismo tiempo?</summary><p>Sí. Dependiendo de tu operación, puedes usar una modalidad o combinar varias para adaptar el recaudo a distintos tipos de cobro.</p></details>
-              <details><summary>¿Qué tipo de cobros puedo gestionar con ePayco Recaudo?</summary><p>Puedes gestionar facturas, mensualidades, cuotas, pagos por servicios, inscripciones, cobros periódicos y otras obligaciones definidas por tu negocio.</p></details>
+              <details>
+                <summary>¿Qué es una plataforma de recaudo en línea?</summary>
+                <p>Es una solución que permite gestionar y recibir pagos de facturas, cuotas, servicios u obligaciones desde canales digitales, con seguimiento y control en tiempo real.</p>
+              </details>
+              <details>
+                <summary>¿Para qué sirve ePayco Recaudo?</summary>
+                <p>Sirve para centralizar cobros, automatizar procesos operativos y facilitar que los clientes consulten y paguen sus obligaciones de forma rápida.</p>
+              </details>
+              <details>
+                <summary>¿Puedo cargar cobros en lote?</summary>
+                <p>Sí. Puedes organizar y publicar múltiples obligaciones usando una modalidad orientada al recaudo por archivo.</p>
+              </details>
+              <details>
+                <summary>¿Puedo ver quién pagó y cuándo lo hizo?</summary>
+                <p>Sí. El módulo de recaudo permite hacer seguimiento del estado de los pagos desde el dashboard.</p>
+              </details>
+              <details>
+                <summary>¿Qué diferencia hay entre Recaudo, Pagos y Suscripciones?</summary>
+                <p>Recaudo está pensado para gestionar obligaciones y cobros estructurados. Pagos facilita cobros digitales más amplios. Suscripciones se enfoca en cobros recurrentes automatizados.</p>
+              </details>
+              <details>
+                <summary>¿Para qué tipo de empresa funciona?</summary>
+                <p>Es útil para instituciones educativas, administraciones, eventos, empresas de servicios y operaciones que necesitan cobrar a muchas personas con control y trazabilidad.</p>
+              </details>
+              <details>
+                <summary>¿Puedo usar diferentes modalidades al mismo tiempo?</summary>
+                <p>Sí. Dependiendo de tu operación, puedes usar una modalidad o combinar varias para adaptar el recaudo a distintos tipos de cobro.</p>
+              </details>
+              <details>
+                <summary>¿Qué tipo de cobros puedo gestionar con ePayco Recaudo?</summary>
+                <p>Puedes gestionar facturas, mensualidades, cuotas, pagos por servicios, inscripciones, cobros periódicos y otras obligaciones definidas por tu negocio.</p>
+              </details>
             </div>
           </div>
         </section>
 
-        <section class="section final-cta" id="contacto">
+        <section class="section final-cta section-dark" id="contacto">
           <div class="container closing-panel" data-reveal>
-            <div><p class="eyebrow">Activa Recaudo</p><h2>Convierte tus cobros en una operación más ordenada, automática y fácil de gestionar.</h2><p>ePayco Recaudo te ayuda a cobrar mejor, reducir trabajo manual y ofrecer una experiencia de pago más clara para tus clientes.</p></div>
-            <div class="closing-actions"><a class="button button-primary" href="https://epayco.com/" target="_blank" rel="noreferrer">Activa Recaudo</a><a class="button button-ghost" href="https://epayco.com/" target="_blank" rel="noreferrer">Habla con un asesor</a><span>Plataforma de recaudo en línea para empresas en Colombia.</span></div>
+            <div>
+              <p class="eyebrow">Activa Recaudo</p>
+              <h2>Convierte tu proceso de cobro en una operación más ordenada, automática y fácil de gestionar.</h2>
+              <p>
+                ePayco Recaudo te ayuda a cobrar mejor, reducir trabajo manual y ofrecer una experiencia de pago más clara para tus clientes.
+              </p>
+            </div>
+            <div class="closing-actions">
+              <a class="button button-primary" href="https://epayco.com/" target="_blank" rel="noreferrer">Activa Recaudo</a>
+              <a class="button button-ghost-light" href="https://epayco.com/" target="_blank" rel="noreferrer">Habla con un asesor</a>
+              <span>Plataforma de recaudo en línea para empresas en Colombia.</span>
+            </div>
           </div>
         </section>
       </main>
