@@ -1,251 +1,275 @@
 const modeContent = {
   archivo: {
-    label: 'Cobros masivos y recurrentes',
-    title: 'Recaudo por archivo',
-    text: 'Carga un archivo con facturas, cuotas u obligaciones para que tus clientes consulten el detalle y paguen en línea.',
+    label: "Cobros masivos y recurrentes",
+    title: "Recaudo por archivo",
+    text: "Carga un archivo con facturas, cuotas u obligaciones para publicar cobros claros, consultables y listos para pagar en línea.",
     bullets: [
-      'Ideal para colegios, administración y servicios recurrentes.',
-      'Permite ordenar obligaciones por usuario, unidad o concepto.',
-      'Reduce validaciones manuales después del pago.'
+      "Ideal para colegios, propiedad horizontal y empresas de servicios.",
+      "Tus clientes consultan el detalle antes de pagar.",
+      "Tu equipo reduce validaciones manuales y reprocesos."
     ],
-    cta: 'Quiero Recaudo por archivo'
+    cta: "Quiero Recaudo por archivo"
   },
   formulario: {
-    label: 'Cobros variables y campañas',
-    title: 'Recaudo por formulario',
-    text: 'Crea formularios personalizados para recibir pagos por conceptos definidos por tu negocio, eventos, campañas o inscripciones.',
+    label: "Cobros flexibles y activación rápida",
+    title: "Recaudo por formulario",
+    text: "Crea formularios de pago para campañas, eventos, inscripciones o conceptos variables sin depender de desarrollos largos.",
     bullets: [
-      'Ideal para inscripciones, eventos y cobros temporales.',
-      'Permite publicar una experiencia clara sin construir un flujo propio.',
-      'Ayuda a capturar información útil junto al pago.'
+      "Configura campos, conceptos y valores según la operación.",
+      "Publica enlaces de pago fáciles de compartir.",
+      "Recibe pagos organizados desde el mismo dashboard."
     ],
-    cta: 'Quiero Recaudo por formulario'
+    cta: "Quiero Recaudo por formulario"
   },
   linea: {
-    label: 'Consulta y pago autónomo',
-    title: 'Recaudo en línea',
-    text: 'Habilita una experiencia para que tus usuarios consulten su obligación y paguen desde cualquier lugar.',
+    label: "Consulta, pago y trazabilidad",
+    title: "Recaudo en línea",
+    text: "Habilita una experiencia para que cada usuario consulte su obligación, elija su medio de pago y complete el proceso desde cualquier lugar.",
     bullets: [
-      'Ideal para empresas que quieren digitalizar la consulta de obligaciones.',
-      'Reduce preguntas repetitivas sobre montos, conceptos y estado.',
-      'Entrega más autonomía al cliente y más visibilidad al equipo.'
+      "Menos fricción para el cliente final.",
+      "Más autonomía sin perder control operativo.",
+      "Seguimiento en tiempo real de cada transacción."
     ],
-    cta: 'Quiero Recaudo en línea'
+    cta: "Quiero Recaudo en línea"
   }
 };
 
-const modeLabel = document.querySelector('#modeLabel');
-const modeTitle = document.querySelector('#modeTitle');
-const modeText = document.querySelector('#modeText');
-const modeBullets = document.querySelector('#modeBullets');
-const modeCta = document.querySelector('#modeCta');
+const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+const hasGsap = typeof window.gsap !== "undefined" && typeof window.ScrollTrigger !== "undefined";
 
-document.querySelectorAll('.mode-tab').forEach((tab) => {
-  tab.addEventListener('click', () => {
-    const nextMode = modeContent[tab.dataset.mode];
+const qs = (selector, scope = document) => scope.querySelector(selector);
+const qsa = (selector, scope = document) => Array.from(scope.querySelectorAll(selector));
 
-    document.querySelectorAll('.mode-tab').forEach((button) => {
-      const isActive = button === tab;
-      button.classList.toggle('is-active', isActive);
-      button.setAttribute('aria-selected', String(isActive));
-    });
+function setMode(modeKey) {
+  const content = modeContent[modeKey] || modeContent.archivo;
+  const panel = qs(".mode-panel");
 
-    modeLabel.textContent = nextMode.label;
-    modeTitle.textContent = nextMode.title;
-    modeText.textContent = nextMode.text;
-    modeCta.textContent = nextMode.cta;
-    modeBullets.replaceChildren(...nextMode.bullets.map((text) => {
-      const item = document.createElement('li');
-      item.textContent = text;
-      return item;
-    }));
-
-    if (window.gsap) {
-      gsap.fromTo(
-        '.mode-panel > *',
-        { y: 18, rotateX: -5, filter: 'blur(5px)' },
-        { y: 0, rotateX: 0, filter: 'blur(0px)', duration: 0.46, stagger: 0.06, ease: 'power3.out' }
-      );
-    }
+  qsa(".mode-tab").forEach((tab) => {
+    const isActive = tab.dataset.mode === modeKey;
+    tab.classList.toggle("is-active", isActive);
+    tab.setAttribute("aria-selected", String(isActive));
   });
-});
 
-document.querySelectorAll('.faq-list details').forEach((item) => {
-  item.addEventListener('toggle', () => {
-    if (!item.open) {
-      return;
-    }
+  qs("#modeLabel").textContent = content.label;
+  qs("#modeTitle").textContent = content.title;
+  qs("#modeText").textContent = content.text;
+  qs("#modeCta").textContent = content.cta;
 
-    document.querySelectorAll('.faq-list details').forEach((other) => {
-      if (other !== item) {
-        other.open = false;
-      }
-    });
+  const list = qs("#modeBullets");
+  list.replaceChildren();
+  content.bullets.forEach((bullet) => {
+    const item = document.createElement("li");
+    item.textContent = bullet;
+    list.appendChild(item);
   });
-});
 
-const revealElements = document.querySelectorAll('[data-reveal]');
-
-function enableFallbackReveal() {
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('is-visible');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.14 });
-
-  revealElements.forEach((element) => observer.observe(element));
+  if (hasGsap && !prefersReducedMotion && panel) {
+    gsap.fromTo(
+      qsa(".mode-panel > *"),
+      { autoAlpha: 0, y: 18, filter: "blur(6px)" },
+      { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.48, stagger: 0.045, ease: "power3.out" }
+    );
+  }
 }
 
-window.addEventListener('load', () => {
-  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+function initTabs() {
+  qsa(".mode-tab").forEach((tab) => {
+    tab.addEventListener("click", () => setMode(tab.dataset.mode));
+    tab.addEventListener("keydown", (event) => {
+      if (!["ArrowRight", "ArrowLeft", "Home", "End"].includes(event.key)) return;
 
-  if (reduceMotion) {
-    revealElements.forEach((element) => element.classList.add('is-visible'));
+      const tabs = qsa(".mode-tab");
+      const index = tabs.indexOf(tab);
+      let nextIndex = index;
+
+      if (event.key === "ArrowRight") nextIndex = (index + 1) % tabs.length;
+      if (event.key === "ArrowLeft") nextIndex = (index - 1 + tabs.length) % tabs.length;
+      if (event.key === "Home") nextIndex = 0;
+      if (event.key === "End") nextIndex = tabs.length - 1;
+
+      event.preventDefault();
+      tabs[nextIndex].focus();
+      setMode(tabs[nextIndex].dataset.mode);
+    });
+  });
+}
+
+function initFaq() {
+  qsa(".faq-list details").forEach((item) => {
+    item.addEventListener("toggle", () => {
+      if (!item.open) return;
+
+      qsa(".faq-list details").forEach((other) => {
+        if (other !== item) other.removeAttribute("open");
+      });
+    });
+  });
+}
+
+function initSmoothAnchors() {
+  qsa('a[href^="#"]').forEach((link) => {
+    link.addEventListener("click", (event) => {
+      const target = qs(link.getAttribute("href"));
+      if (!target) return;
+
+      event.preventDefault();
+      target.scrollIntoView({ behavior: prefersReducedMotion ? "auto" : "smooth", block: "start" });
+    });
+  });
+}
+
+function fallbackReveal() {
+  const targets = qsa("[data-reveal]");
+
+  if (!("IntersectionObserver" in window)) {
+    targets.forEach((target) => target.classList.add("is-visible"));
     return;
   }
 
-  if (window.gsap && window.ScrollTrigger) {
-    gsap.registerPlugin(ScrollTrigger);
-    ScrollTrigger.defaults({ invalidateOnRefresh: true });
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("is-visible");
+        observer.unobserve(entry.target);
+      });
+    },
+    { rootMargin: "0px 0px -12% 0px", threshold: 0.12 }
+  );
 
-    gsap.timeline({ defaults: { ease: 'power3.out' } })
-      .from('.hero-copy > *', { y: 34, duration: 0.9, stagger: 0.07 })
-      .from('.product-frame', { y: 46, scale: 0.965, rotateX: 7, rotateY: -5, duration: 1 }, '<0.1')
-      .from('.floating-note', { x: 28, y: 24, rotate: -2, duration: 0.82 }, '<0.35');
+  targets.forEach((target) => observer.observe(target));
+}
 
-    gsap.to('.product-frame', {
-      y: -42,
-      rotateX: -2,
-      ease: 'none',
-      scrollTrigger: {
-        trigger: '.hero',
-        start: 'top top',
-        end: 'bottom top',
-        scrub: 0.8
-      }
-    });
+function initGsap() {
+  if (!hasGsap || prefersReducedMotion) {
+    fallbackReveal();
+    return;
+  }
 
-    gsap.to('.floating-note', {
-      y: 48,
-      x: -18,
-      ease: 'none',
-      scrollTrigger: {
-        trigger: '.hero',
-        start: 'top top',
-        end: 'bottom top',
-        scrub: 0.8
-      }
-    });
+  gsap.registerPlugin(ScrollTrigger);
+  gsap.defaults({ ease: "power3.out" });
 
-    gsap.to('.hero', {
-      backgroundPosition: '0 -120px, 0 -90px, 0 0',
-      ease: 'none',
-      scrollTrigger: {
-        trigger: '.hero',
-        start: 'top top',
-        end: 'bottom top',
-        scrub: true
-      }
-    });
+  gsap.timeline({ defaults: { duration: 0.78 } })
+    .from(".site-header", { y: -28, autoAlpha: 0 })
+    .from(".hero-copy > *", { y: 34, autoAlpha: 0, stagger: 0.065 }, "-=0.25")
+    .from(".control-console", { y: 58, scale: 0.96, rotateX: 7, rotateY: -5, autoAlpha: 0, duration: 1.05 }, "-=0.55")
+    .from(".floating-ticket", { x: 34, y: 26, autoAlpha: 0, duration: 0.7 }, "-=0.45")
+    .from(".hero-flow span", { scaleX: 0, transformOrigin: "left center", stagger: 0.08, duration: 0.55 }, "-=0.45");
 
-    gsap.utils.toArray('.section, .quick-stats').forEach((section) => {
-      const targets = section.querySelectorAll(
-        '[data-reveal], .stats-grid article, .contrast-card, .engine-step, .sector-card, .timeline article, .brand-wall span, .proof-metrics article, .faq-list details'
-      );
+  gsap.to(".control-console", {
+    y: -44,
+    rotateX: -2,
+    scrollTrigger: {
+      trigger: ".hero",
+      start: "top top",
+      end: "bottom top",
+      scrub: 0.8
+    }
+  });
 
-      if (!targets.length) {
-        return;
-      }
+  gsap.to(".floating-ticket", {
+    x: -18,
+    y: 48,
+    scrollTrigger: {
+      trigger: ".hero",
+      start: "top top",
+      end: "bottom top",
+      scrub: 0.8
+    }
+  });
 
-      gsap.fromTo(targets, {
-        y: 42,
-        scale: 0.985,
-        filter: 'blur(5px)'
-      }, {
+  gsap.to(".hero-glow", {
+    y: 120,
+    scale: 0.86,
+    scrollTrigger: {
+      trigger: ".hero",
+      start: "top top",
+      end: "bottom top",
+      scrub: true
+    }
+  });
+
+  qsa(".section, .quick-stats").forEach((section) => {
+    const targets = qsa(
+      "[data-reveal], .stats-grid article, .comparison-card, .engine-step, .benefit-grid article, .sector-card, .timeline article, .brand-wall span, .proof-metrics article, .faq-list details",
+      section
+    );
+
+    if (!targets.length) return;
+
+    gsap.fromTo(
+      targets,
+      { y: 46, autoAlpha: 0, filter: "blur(7px)" },
+      {
         y: 0,
-        scale: 1,
-        filter: 'blur(0px)',
-        duration: 0.74,
-        ease: 'power3.out',
-        stagger: { each: 0.055, from: 'start' },
+        autoAlpha: 1,
+        filter: "blur(0px)",
+        duration: 0.72,
+        stagger: { each: 0.055, from: "start" },
         scrollTrigger: {
           trigger: section,
-          start: 'top 78%',
-          end: 'bottom 22%',
-          toggleActions: 'play reverse play reverse'
+          start: "top 78%",
+          end: "bottom 22%",
+          toggleActions: "play reverse play reverse"
         }
-      });
-    });
-
-    gsap.utils.toArray('.engine-step').forEach((step, index) => {
-      gsap.to(step, {
-        x: index % 2 === 0 ? 18 : -18,
-        y: index % 2 === 0 ? -10 : 10,
-        scale: 1.015,
-        ease: 'none',
-        scrollTrigger: {
-          trigger: step,
-          start: 'top bottom',
-          end: 'bottom top',
-          scrub: true
-        }
-      });
-    });
-
-    gsap.utils.toArray('.sector-card, .timeline article, .proof-metrics article').forEach((card, index) => {
-      gsap.to(card, {
-        y: index % 2 === 0 ? -16 : 14,
-        ease: 'none',
-        scrollTrigger: {
-          trigger: card,
-          start: 'top bottom',
-          end: 'bottom top',
-          scrub: true
-        }
-      });
-    });
-
-    gsap.utils.toArray('.brand-wall span').forEach((logo, index) => {
-      gsap.to(logo, {
-        y: index % 2 === 0 ? -18 : 18,
-        scale: 1.025,
-        ease: 'none',
-        scrollTrigger: {
-          trigger: '.brand-wall',
-          start: 'top bottom',
-          end: 'bottom top',
-          scrub: true
-        }
-      });
-    });
-
-    gsap.to('.mode-panel', {
-      y: -28,
-      rotateX: 2,
-      ease: 'none',
-      scrollTrigger: {
-        trigger: '.modalities-section',
-        start: 'top bottom',
-        end: 'bottom top',
-        scrub: 0.8
       }
-    });
+    );
+  });
 
-    gsap.to('.closing-panel', {
-      y: -30,
-      scale: 1.018,
-      ease: 'none',
+  qsa(".engine-step, .benefit-grid article, .sector-card, .timeline article, .proof-metrics article").forEach((card, index) => {
+    gsap.to(card, {
+      y: index % 2 === 0 ? -16 : 14,
       scrollTrigger: {
-        trigger: '.final-cta',
-        start: 'top bottom',
-        end: 'bottom top',
+        trigger: card,
+        start: "top bottom",
+        end: "bottom top",
         scrub: true
       }
     });
-  } else {
-    enableFallbackReveal();
-  }
+  });
+
+  qsa(".brand-wall span").forEach((brand, index) => {
+    gsap.to(brand, {
+      y: index % 2 === 0 ? -18 : 18,
+      scale: 1.025,
+      scrollTrigger: {
+        trigger: brand,
+        start: "top 92%",
+        end: "bottom 10%",
+        scrub: true
+      }
+    });
+  });
+
+  gsap.to(".mode-panel", {
+    y: -26,
+    rotateX: 2,
+    scrollTrigger: {
+      trigger: ".modalities-section",
+      start: "top bottom",
+      end: "bottom top",
+      scrub: 0.8
+    }
+  });
+
+  gsap.to(".closing-panel", {
+    y: -30,
+    scale: 1.012,
+    scrollTrigger: {
+      trigger: ".final-cta",
+      start: "top bottom",
+      end: "bottom top",
+      scrub: true
+    }
+  });
+
+  ScrollTrigger.refresh();
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  initTabs();
+  initFaq();
+  initSmoothAnchors();
+  setMode("archivo");
+  initGsap();
 });
